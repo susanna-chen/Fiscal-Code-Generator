@@ -8,41 +8,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="steps-container">
-            <ul class="steps">
-                <a href="#" class="step"><li>1</li></a>
-                <a href="#" class="step"><li>2</li></a>
-                <a href="#" class="step"><li>3</li></a>
-            </ul>
-            <h2 id="displays-step"></h2>
-        </div>
+   <div class="container">
 
-        <div>
-            <div class="reciver-container">
-                <label for="reciver">Reciver Of The Email</label>
-                <select id="reciver">
-                    <option value="segreteria">Segreteria studenti</option>
-                    <option value="professore">Professore</option>
-                </select>
-                <span id="sel-line"></span>
-                
-                <div class="prof-container">
-                    <label>Nome Del Professore<input type="text" name="first-name"/></label>         
-                    <label>Cognome Del Professore<input type="text" name="last-name"/></label>
-                    <label>Nome del Corso<input type="text" name="course-name"/></label>
-                </div>
-            </div>
+        <h2>Fiscal Code Generator</h2>
 
-            <div class="subject-container">
-                
-            </div>
+       <form class="form">
+            
+            <input type="text" name="last-name" id="last-name" autocomplete="off">
+            <label for="last-name" class="label-down">Last Name</label><br>
+            
+            <input type="text" name="first-name" id="first-name" autocomplete="off">
+            <label for="first-name" class="label-down">First Name</label><br>
 
-            <div class="email-container">
-                
+            <label for="birth-date">Date of Birth</label>
+            <input type="date" name="birth-date" id="birth-date"><br>
+            
+           
+            <input type="text" name="birth-place" id="birth-place">
+            <label for="birth-place" class="label-down">Place of Birth</label><br>
+
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            
+
+            <div class="buttonHolder">
+                <input type="submit" id="submit-btn" value="Generate Code">
             </div>
-        </div>
-    </div>
+            
+      </form>
+   </div>
 
     <script src="index.js"></script>
 </body>
