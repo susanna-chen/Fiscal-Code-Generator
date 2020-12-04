@@ -14,17 +14,17 @@
 
        <form class="form">
             
-            <input type="text" name="last-name" id="last-name" autocomplete="off">
+            <input type="text" name="last-name" id="last-name" autocomplete="off" required>
             <label for="last-name" class="label-down">Last Name</label><br>
             
-            <input type="text" name="first-name" id="first-name" autocomplete="off">
+            <input type="text" name="first-name" id="first-name" autocomplete="off" required>
             <label for="first-name" class="label-down">First Name</label><br>
 
             <label for="birth-date">Date of Birth</label>
             <input type="date" name="birth-date" id="birth-date"><br>
             
            
-            <input type="text" name="birth-place" id="birth-place">
+            <input type="text" name="birth-place" id="birth-place" autocomplete="off" required>
             <label for="birth-place" class="label-down">Place of Birth</label><br>
 
             <input type="radio" id="male" name="gender" value="male">
@@ -32,10 +32,7 @@
             <input type="radio" id="female" name="gender" value="female">
             <label for="female">Female</label><br>
             
-
-            <div class="buttonHolder">
-                <input type="submit" id="submit-btn" value="Generate Code">
-            </div>
+            <button id="btn">Generate Code</button>
             
       </form>
    </div>
