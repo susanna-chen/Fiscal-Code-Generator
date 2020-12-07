@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Generator</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
    <div class="container">
@@ -20,23 +20,23 @@
             <input type="text" name="first-name" id="first-name" autocomplete="off" required>
             <label for="first-name" class="label-down">First Name</label><br>
 
-            <label for="birth-date">Date of Birth</label>
-            <input type="date" name="birth-date" id="birth-date"><br>
-            
-           
-            <input type="text" name="birth-place" id="birth-place" autocomplete="off" required>
-            <label for="birth-place" class="label-down">Place of Birth</label><br>
-
             <input type="radio" id="male" name="gender" value="male">
             <label for="male">Male</label>
             <input type="radio" id="female" name="gender" value="female">
             <label for="female">Female</label><br>
             
+            <label for="birth-date">Date of Birth</label>
+            <input type="date" name="birth-date" id="birth-date"><br>
+            
+            <input type="text" name="birth-place" id="birth-place" required>
+            <label for="birth-place" class="label-down">Place of Birth</label><br>
+            
             <button id="btn">Generate Code</button>
             
       </form>
    </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

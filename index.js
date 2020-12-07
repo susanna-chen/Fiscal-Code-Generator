@@ -28,6 +28,7 @@ const lastNameCode = function (lastName) {
 }
 
 const firstNameCode = function (firstName) { 
+
     let vowelArr = firstName.match(vowelRegex);
     let consonantArr = firstName.match(consonantRegex);
 
@@ -56,7 +57,82 @@ const firstNameCode = function (firstName) {
     console.log(fiscalCode);
 }
 
-lastNameCode('rossi')
-firstNameCode('mariololo')
+const birthDateCode = function () { 
+    //get code of year
+    let date = $('#birth-date').val().split("-");
+    let yearResult;
+    console.log(date);
+    let year = date[0] % 100;
+    
+    if (year < 10) {
+        yearResult = "0" + year;
+    }
+    
+    fiscalCode.push(yearResult)
 
+    //get code of month
+    let month = date[1];
+    let monthResult;
+
+    switch(month) {
+        case '01':
+            monthResult = 'a';
+            break;
+        case '02':
+            monthResult = 'b';
+            break;
+        case '03':
+            monthResult = 'c';
+            break;
+        case '4':
+            monthResult = 'd';
+            break;
+        case '05':
+            monthResult = 'e';
+            break;
+        case '06':
+            monthResult = 'h';
+            break;
+        case '07':
+            monthResult = 'l';
+            break;
+        case '08':
+            monthResult = 'm';
+            break;
+        case '09':
+            monthResult = 'p';
+            break;
+        case '10':
+            monthResult = 'r';
+            break;
+        case '11':
+            monthResult = 's';
+            break;
+        case '12':
+            monthResult = 't';
+            break;
+    }
+
+    //get day
+    let day = date[2];
+    let dayResult;
+
+    if ( $("input[type=radio]:checked").attr('id') == 'male' ) {
+        console.log(dayResult);
+    } else if ( $("input[type=radio]:checked").attr('id') == 'female' ) {
+        dayResult = (parseInt(day) + 40).toString()
+        console.log(dayResult);
+    }
+}
+
+$.getJSON('paese.json', function(data) {
+   let birthPlace = JSON.stringify(data);
+   $( "#birth-place" ).autocomplete({
+    source: birthPlace.denominazione
+ });
+});
+
+$('#btn').click(function () { 
+    
+});
 
