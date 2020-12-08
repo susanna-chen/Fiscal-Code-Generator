@@ -125,14 +125,35 @@ const birthDateCode = function () {
     }
 }
 
-$.getJSON('paese.json', function(data) {
-   let birthPlace = JSON.stringify(data);
-   $( "#birth-place" ).autocomplete({
-    source: birthPlace.denominazione
- });
-});
 
-$('#btn').click(function () { 
+
+
+
+const getBirthplace = async searchBirthplace => {
+        const response = await fetch('paese.json');
+/*         if (response.status !== 200) {
+            throw new Error('cannot fetch the data');
+        } */
+        const data = await response.json();
+
+        // filter
+        
+        let matches = data.filter(paese => {
+            const regex = new RegExp(`^${searchBirthplace}`, 'gi');
+            if (paese.denominazione.match(regex)) {
+                return paese
+            }
+        })
+        console.log(matches);
+        
+        if (searchBirthplace.length === 0) {
+            matches = [];
+        } 
+    }
+
+$('#birth-place').on('input', () => getBirthplace($('#birth-place').val()));
+
+/* getBirthplace()
+    .then(data => console.log('resolved:', data))
+    .catch(err => console.log('rejected:', err.message)) */
     
-});
-

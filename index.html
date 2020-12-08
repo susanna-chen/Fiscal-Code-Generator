@@ -27,9 +27,11 @@
             <label for="birth-date">Date of Birth</label>
             <input type="date" name="birth-date" id="birth-date"><br>
             
-            <input type="text" name="birth-place" id="birth-place" required>
-            <label for="birth-place" class="label-down">Place of Birth</label><br>
-            
+            <label for="birth-place">Place Of Birth</label>
+            <input list="luogo-nascita" id="birth-place" autocomplete="off" required>
+            <datalist id="luogo-nascita">
+                
+            </datalist>
             <button id="btn">Generate Code</button>
             
       </form>
