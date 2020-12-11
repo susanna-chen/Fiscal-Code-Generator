@@ -125,33 +125,23 @@ const birthDateCode = function () {
     }
 }
 
+let luoghiNascita;
+
+let getPaesi = $.getJSON( "paese.json", function( data ) {
+    luoghiNascita = data;
+    $.each(luoghiNascita, function (index, paese) { 
+         $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
+        $('#btn').on('click', function () {
+                if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
+                    console.log(paese.codice);
+                } 
+            });
 
 
+    });
+    
+});
 
-
-const getBirthplace = async searchBirthplace => {
-        const response = await fetch('paese.json');
-/*         if (response.status !== 200) {
-            throw new Error('cannot fetch the data');
-        } */
-        const data = await response.json();
-
-        // filter
-        
-        let matches = data.filter(paese => {
-            const regex = new RegExp(`^${searchBirthplace}`, 'gi');
-            if (paese.denominazione.match(regex)) {
-                return paese
-            }
-        })
-        console.log(matches);
-        
-        if (searchBirthplace.length === 0) {
-            matches = [];
-        } 
-    }
-
-$('#birth-place').on('input', () => getBirthplace($('#birth-place').val()));
 
 /* getBirthplace()
     .then(data => console.log('resolved:', data))
