@@ -127,14 +127,16 @@ const birthDateCode = function () {
 
 let luoghiNascita;
 
-let getPaesi = $.getJSON( "paese.json", function( data ) {
+const getPaesi = $.getJSON( "paese.json", function( data ) {
     luoghiNascita = data;
     $.each(luoghiNascita, function (index, paese) { 
          $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
         $('#btn').on('click', function () {
                 if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
-                    console.log(paese.codice);
-                } 
+                    fiscalCode.push(paese.codice);
+                } else {
+                    $('#birth-place').attr('placeholder', 'Insert valid birthplace');
+                }
             });
 
 
@@ -142,7 +144,7 @@ let getPaesi = $.getJSON( "paese.json", function( data ) {
     
 });
 
-
+getPaesi()
 /* getBirthplace()
     .then(data => console.log('resolved:', data))
     .catch(err => console.log('rejected:', err.message)) */

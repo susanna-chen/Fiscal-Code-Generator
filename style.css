@@ -89,9 +89,21 @@ input:not(:focus):valid + .label-down {
     margin-left: 2.8rem;
 }
 
+.btn-container {
+    text-align: center;
+}
+
 #btn {
     margin-top: 2.5rem;
     padding: 10px 20px;
     background: var(--detail);
+    border: 1px solid var(--detail);
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
 
+}
+
+#birth-place::placeholder {
+    color: var(--detail);
 }
