@@ -16,7 +16,7 @@ const lastNameCode = function (lastName) {
      else if (consonantArr.length == 1 && vowelArr.length == 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], 'x');
     }
-     else if (consonantArr.length == 1 && vowevowelArr.length > 1) {
+     else if (consonantArr.length == 1 &&  vowelArr.length > 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], vowelArr[1]);
     }
      else if (consonantArr.length == 2 && vowelArr.length > 0) {
@@ -41,7 +41,7 @@ const firstNameCode = function (firstName) {
     else if (consonantArr.length == 1 && vowelArr.length == 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], 'x');
     }
-    else if (consonantArr.length == 1 && vowevowelArr.lengthlLength > 1) {
+    else if (consonantArr.length == 1 && vowelArr.lengthlLength > 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], vowelArr[1]);
     }
     else if (consonantArr.length == 2 && vowelArr.length > 0) {
@@ -65,9 +65,12 @@ const birthDateCode = function () {
     
     if (year < 10) {
         yearResult = "0" + year;
-        fiscalCode.push(yearResult)
+        fiscalCode.push("0", year)
     } else {
-        fiscalCode.push(year)
+        let splitYear = year.split('');
+        for ( let i = 0; i < splitYear.length; i++ ) {
+            fiscalCode.push(splitYear[i])
+        }
     }
 
     //get code of month
@@ -121,7 +124,7 @@ const birthDateCode = function () {
     let splitDay = day.split('');
 
     if ( $("input[type=radio]:checked").attr('id') == 'male' ) {
-        for ( let i=0; i < splitDay.length; i++ ) {
+        for ( let i = 0; i < splitDay.length; i++ ) {
             fiscalCode.push(splitDay[i])
         }
         fiscalCode.push(day[0], day[1])
@@ -142,7 +145,7 @@ $.getJSON( "paese.json", function( data ) {
         $('#btn').on('click', function () {
                 if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
                     let splitCodice = paese.codice.split('')
-                    for ( let i=0; i < splitCodice.length; i++ ) {
+                    for ( let i = 0; i < splitCodice.length; i++ ) {
                         fiscalCode.push(splitCodice[i])
                     }
                 } else {
@@ -150,15 +153,23 @@ $.getJSON( "paese.json", function( data ) {
                 }
             });
     });
-    
 });
+let fiscalCodeOdd = [];
+let fiscalCodeEven = [];
 
-const carattereControlloCode = function () {
-    let splitArr;
-    splitArr = fiscalCode.join('').split('')
-    console.log(splitArr);
+const controlNumCode = arr => {
 
+    for(let i = 0; i < arr.length; i++)
+
+        if(i % 2 == 0) {
+            fiscalCodeEven.push(arr[i]);
+            console.log(fiscalCodeEven);
+        } else {
+            fiscalCodeOdd.push(arr[i]);
+            console.log(fiscalCodeOdd);
+        }
 }
+
 
 $('#btn').on('click', function () {
     let lastNameInputVal = $('#last-name').val();
@@ -167,7 +178,7 @@ $('#btn').on('click', function () {
     lastNameCode(lastNameInputVal)
     firstNameCode(firstNameInputVal)
     birthDateCode()
-    carattereControlloCode()
+    controlNumCode(fiscalCode)
 
     console.log(fiscalCode); 
 
@@ -177,3 +188,4 @@ $('#btn').on('click', function () {
     .then(data => console.log('resolved:', data))
     .catch(err => console.log('rejected:', err.message)) */
     
+ 
