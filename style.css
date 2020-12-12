@@ -104,6 +104,6 @@ input:not(:focus):valid + .label-down {
 
 }
 
-#birth-place::placeholder {
+input::placeholder {
     color: var(--detail);
 }
