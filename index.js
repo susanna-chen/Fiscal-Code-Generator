@@ -135,9 +135,7 @@ const birthDateCode = function () {
     }
 }
 
-let luoghiNascita;
-
-$.getJSON( "paese.json", function( data ) {
+/* $.getJSON( "paese.json", function( data ) {
     luoghiNascita = data;
     $.each(luoghiNascita, function (index, paese) { 
          $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
@@ -152,251 +150,162 @@ $.getJSON( "paese.json", function( data ) {
                 }
             });
     });
-});
+}); */
+
 let fiscalCodeOdd = [];
 let fiscalCodeEven = [];
 let sumArr = [];
 
 const controlNumCode = arr => {
 
-    /* for(let i = 0; i < arr.length; i += 2) {
-            fiscalCodeEven.push(arr[i]);
-            console.log(fiscalCodeEven);
-    }
-        
-        for (let i = 0; i < fiscalCodeEven.length; i++) { 
-            if (fiscalCodeEven[i] === 'a' || '0') {
-                sumArr.push(0)
-            } else if (fiscalCodeEven[i] == 'b' || '1') {
-                sumArr.push(1)
-            } else if (fiscalCodeEven[i] == 'c' || '2') {
-                sumArr.push(2)
-            } else if (fiscalCodeEven[i] == 'd' || '3') {
-                sumArr.push(3)
-            } else if (fiscalCodeEven[i] == 'e' || '4') {
-                sumArr.push(4)
-            } else if (fiscalCodeEven[i] == 'f' || '5') {
-                sumArr.push(5)
-            } else if (fiscalCodeEven[i] == 'g' || '6') {
-                sumArr.push(6)
-            } else if (fiscalCodeEven[i] == 'h' || '7') {
-                sumArr.push(7)
-            } else if (fiscalCodeEven[i] == 'i' || '8') {
-                sumArr.push(8)
-            } else if (fiscalCodeEven[i] == 'j' || '9') {
-                sumArr.push(9)
-            } else if (fiscalCodeEven[i] == 'k') {
-                sumArr.push(10)
-            } else if (fiscalCodeEven[i] == 'l') {
-                sumArr.push(11)
-            } else if (fiscalCodeEven[i] == 'm') {
-                sumArr.push(12)
-            } else if (fiscalCodeEven[i] == 'n') {
-                sumArr.push(13)
-            } else if (fiscalCodeEven[i] == 'o') {
-                sumArr.push(14)
-            } else if (fiscalCodeEven[i] == 'p') {
-                sumArr.push(15)
-            } else if (fiscalCodeEven[i] == 'q') {
-                sumArr.push(16)
-            } else if (fiscalCodeEven[i] == 'r') {
-                sumArr.push(17)
-            } else if (fiscalCodeEven[i] == 's') {
-                sumArr.push(18)
-            } else if (fiscalCodeEven[i] == 't') {
-                sumArr.push(19)
-            } else if (fiscalCodeEven[i] == 'u') {
-                sumArr.push(20)
-            } else if (fiscalCodeEven[i] == 'v') {
-                sumArr.push(21)
-            } else if (fiscalCodeEven[i] == 'w') {
-                sumArr.push(22)
-            } else if (fiscalCodeEven[i] == 'x') {
-                sumArr.push(23)
-            } else if (fiscalCodeEven[i] == 'y') {
-                sumArr.push(24)
-            } else if (fiscalCodeEven[i] == 'z') {
-                sumArr.push(25)
-            } 
-        };
-
-        for (let i = 0; i < fiscalCodeOdd.length; i++) { 
-            if (fiscalCodeOdd[i] === 'a' || '0') {
-                sumArr.push(1)
-            } else if (fiscalCodeOdd[i] == 'b' || '1') {
-                sumArr.push(0)
-            } else if (fiscalCodeOdd[i] == 'c' || '2') {
-                sumArr.push(5)
-            } else if (fiscalCodeOdd[i] == 'd' || '3') {
-                sumArr.push(7)
-            } else if (fiscalCodeOdd[i] == 'e' || '4') {
-                sumArr.push(9)
-            } else if (fiscalCodeOdd[i] == 'f' || '5') {
-                sumArr.push(13)
-            } else if (fiscalCodeOdd[i] == 'g' || '6') {
-                sumArr.push(15)
-            } else if (fiscalCodeOdd[i] == 'h' || '7') {
-                sumArr.push(17)
-            } else if (fiscalCodeOdd[i] == 'i' || '8') {
-                sumArr.push(19)
-            } else if (fiscalCodeOdd[i] == 'j' || '9') {
-                sumArr.push(21)
-            } else if (fiscalCodeOdd[i] == 'k') {
-                sumArr.push(2)
-            } else if (fiscalCodeOdd[i] == 'l') {
-                sumArr.push(4)
-            } else if (fiscalCodeOdd[i] == 'm') {
-                sumArr.push(18)
-            } else if (fiscalCodeOdd[i] == 'n') {
-                sumArr.push(20)
-            } else if (fiscalCodeOdd[i] == 'o') {
-                sumArr.push(11)
-            } else if (fiscalCodeOdd[i] == 'p') {
-                sumArr.push(3)
-            } else if (fiscalCodeOdd[i] == 'q') {
-                sumArr.push(6)
-            } else if (fiscalCodeOdd[i] == 'r') {
-                sumArr.push(8)
-            } else if (fiscalCodeOdd[i] == 's') {
-                sumArr.push(12)
-            } else if (fiscalCodeOdd[i] == 't') {
-                sumArr.push(14)
-            } else if (fiscalCodeOdd[i] == 'u') {
-                sumArr.push(16)
-            } else if (fiscalCodeOdd[i] == 'v') {
-                sumArr.push(10)
-            } else if (fiscalCodeOdd[i] == 'w') {
-                sumArr.push(22)
-            } else if (fiscalCodeOdd[i] == 'x') {
-                sumArr.push(25)
-            } else if (fiscalCodeOdd[i] == 'y') {
-                sumArr.push(24)
-            } else if (fiscalCodeOdd[i] == 'z') {
-                sumArr.push(23)
-            }
-        }; */
-
-        
-    
-    fiscalCodeEven.forEach(function (index, value) {
-        if (value === 'a' || value == '0') {
-            sumArr.push(0)
-        } else if (value == 'b' || value == '1') {
-            sumArr.push(1)
-        } else if (value == 'c' || value == '2') {
-            sumArr.push(2)
-        } else if (value == 'd' || value == '3') {
-            sumArr.push(3)
-        } else if (value == 'e' || value == '4') {
-            sumArr.push(4)
-        } else if (value == 'f' || value == '5') {
-            sumArr.push(5)
-        } else if (value == 'g' || value == '6') {
-            sumArr.push(6)
-        } else if (value == 'h' || value == '7') {
-            sumArr.push(7)
-        } else if (value == 'i' || value == '8') {
-            sumArr.push(8)
-        } else if (value == 'j' || value == '9') {
-            sumArr.push(9)
-        } else if (value == 'k') {
-            sumArr.push(10)
-        } else if (value == 'l') {
-            sumArr.push(11)
-        } else if (value == 'm') {
-            sumArr.push(12)
-        } else if (value == 'n') {
-            sumArr.push(13)
-        } else if (value == 'o') {
-            sumArr.push(14)
-        } else if (value == 'p') {
-            sumArr.push(15)
-        } else if (value == 'q') {
-            sumArr.push(16)
-        } else if (value == 'r') {
-            sumArr.push(17)
-        } else if (value == 's') {
-            sumArr.push(18)
-        } else if (value == 't') {
-            sumArr.push(19)
-        } else if (value == 'u') {
-            sumArr.push(20)
-        } else if (value == 'v') {
-            sumArr.push(21)
-        } else if (value == 'w') {
-            sumArr.push(22)
-        } else if (value == 'x') {
-            sumArr.push(23)
-        } else if (value == 'y') {
-            sumArr.push(24)
-        } else if (value == 'z') {
-            sumArr.push(25)
+    for (let i = 0; i < fiscalCode.length; i++) {
+        if (i % 2 === 0) {
+            fiscalCodeEven.push(fiscalCode[i])
+        } else {
+            fiscalCodeOdd.push(fiscalCode[i])
         }
-        });
-    
-    fiscalCodeOdd.forEach(function (index, value) {
-    if (value === 'a' || '0') {
-        sumArr.push(1)
-    } else if (value == 'b' ||value == '1') {
-        sumArr.push(0)
-    } else if (value == 'c' ||value == '2') {
-        sumArr.push(5)
-    } else if (value == 'd' ||value == '3') {
-        sumArr.push(7)
-    } else if (value == 'e' ||value == '4') {
-        sumArr.push(9)
-    } else if (value == 'f' ||value == '5') {
-        sumArr.push(13)
-    } else if (value == 'g' ||value == '6') {
-        sumArr.push(15)
-    } else if (value == 'h' ||value == '7') {
-        sumArr.push(17)
-    } else if (value == 'i' ||value == '8') {
-        sumArr.push(19)
-    } else if (value == 'j' ||value == '9') {
-        sumArr.push(21)
-    } else if (value == 'k') {
-        sumArr.push(2)
-    } else if (value == 'l') {
-        sumArr.push(4)
-    } else if (value == 'm') {
-        sumArr.push(18)
-    } else if (value == 'n') {
-        sumArr.push(20)
-    } else if (value == 'o') {
-        sumArr.push(11)
-    } else if (value == 'p') {
-        sumArr.push(3)
-    } else if (value == 'q') {
-        sumArr.push(6)
-    } else if (value == 'r') {
-        sumArr.push(8)
-    } else if (value == 's') {
-        sumArr.push(12)
-    } else if (value == 't') {
-        sumArr.push(14)
-    } else if (value == 'u') {
-        sumArr.push(16)
-    } else if (value == 'v') {
-        sumArr.push(10)
-    } else if (value == 'w') {
-        sumArr.push(22)
-    } else if (value == 'x') {
-        sumArr.push(25)
-    } else if (value == 'y') {
-        sumArr.push(24)
-    } else if (value == 'z') {
-        sumArr.push(23)
     }
-    });
+
+    for (let i = 0; i < fiscalCodeEven.length; i++) { 
+        if (fiscalCodeEven[i] === 'a' || '0') {
+            sumArr.push(0)
+        } else if (fiscalCodeEven[i] == 'b' || '1') {
+            sumArr.push(1)
+        } else if (fiscalCodeEven[i] == 'c' || '2') {
+            sumArr.push(2)
+        } else if (fiscalCodeEven[i] == 'd' || '3') {
+            sumArr.push(3)
+        } else if (fiscalCodeEven[i] == 'e' || '4') {
+            sumArr.push(4)
+        } else if (fiscalCodeEven[i] == 'f' || '5') {
+            sumArr.push(5)
+        } else if (fiscalCodeEven[i] == 'g' || '6') {
+            sumArr.push(6)
+        } else if (fiscalCodeEven[i] == 'h' || '7') {
+            sumArr.push(7)
+        } else if (fiscalCodeEven[i] == 'i' || '8') {
+            sumArr.push(8)
+        } else if (fiscalCodeEven[i] == 'j' || '9') {
+            sumArr.push(9)
+        } else if (fiscalCodeEven[i] == 'k') {
+            sumArr.push(10)
+        } else if (fiscalCodeEven[i] == 'l') {
+            sumArr.push(11)
+        } else if (fiscalCodeEven[i] == 'm') {
+            sumArr.push(12)
+        } else if (fiscalCodeEven[i] == 'n') {
+            sumArr.push(13)
+        } else if (fiscalCodeEven[i] == 'o') {
+            sumArr.push(14)
+        } else if (fiscalCodeEven[i] == 'p') {
+            sumArr.push(15)
+        } else if (fiscalCodeEven[i] == 'q') {
+            sumArr.push(16)
+        } else if (fiscalCodeEven[i] == 'r') {
+            sumArr.push(17)
+        } else if (fiscalCodeEven[i] == 's') {
+            sumArr.push(18)
+        } else if (fiscalCodeEven[i] == 't') {
+            sumArr.push(19)
+        } else if (fiscalCodeEven[i] == 'u') {
+            sumArr.push(20)
+        } else if (fiscalCodeEven[i] == 'v') {
+            sumArr.push(21)
+        } else if (fiscalCodeEven[i] == 'w') {
+            sumArr.push(22)
+        } else if (fiscalCodeEven[i] == 'x') {
+            sumArr.push(23)
+        } else if (fiscalCodeEven[i] == 'y') {
+            sumArr.push(24)
+        } else if (fiscalCodeEven[i] == 'z') {
+            sumArr.push(25)
+        } 
+    };
+
+    for (let i = 0; i < fiscalCodeOdd.length; i++) { 
+        if (fiscalCodeOdd[i] === 'a' || '0') {
+            sumArr.push(1)
+        } else if (fiscalCodeOdd[i] == 'b' || '1') {
+            sumArr.push(0)
+        } else if (fiscalCodeOdd[i] == 'c' || '2') {
+            sumArr.push(5)
+        } else if (fiscalCodeOdd[i] == 'd' || '3') {
+            sumArr.push(7)
+        } else if (fiscalCodeOdd[i] == 'e' || '4') {
+            sumArr.push(9)
+        } else if (fiscalCodeOdd[i] == 'f' || '5') {
+            sumArr.push(13)
+        } else if (fiscalCodeOdd[i] == 'g' || '6') {
+            sumArr.push(15)
+        } else if (fiscalCodeOdd[i] == 'h' || '7') {
+            sumArr.push(17)
+        } else if (fiscalCodeOdd[i] == 'i' || '8') {
+            sumArr.push(19)
+        } else if (fiscalCodeOdd[i] == 'j' || '9') {
+            sumArr.push(21)
+        } else if (fiscalCodeOdd[i] == 'k') {
+            sumArr.push(2)
+        } else if (fiscalCodeOdd[i] == 'l') {
+            sumArr.push(4)
+        } else if (fiscalCodeOdd[i] == 'm') {
+            sumArr.push(18)
+        } else if (fiscalCodeOdd[i] == 'n') {
+            sumArr.push(20)
+        } else if (fiscalCodeOdd[i] == 'o') {
+            sumArr.push(11)
+        } else if (fiscalCodeOdd[i] == 'p') {
+            sumArr.push(3)
+        } else if (fiscalCodeOdd[i] == 'q') {
+            sumArr.push(6)
+        } else if (fiscalCodeOdd[i] == 'r') {
+            sumArr.push(8)
+        } else if (fiscalCodeOdd[i] == 's') {
+            sumArr.push(12)
+        } else if (fiscalCodeOdd[i] == 't') {
+            sumArr.push(14)
+        } else if (fiscalCodeOdd[i] == 'u') {
+            sumArr.push(16)
+        } else if (fiscalCodeOdd[i] == 'v') {
+            sumArr.push(10)
+        } else if (fiscalCodeOdd[i] == 'w') {
+            sumArr.push(22)
+        } else if (fiscalCodeOdd[i] == 'x') {
+            sumArr.push(25)
+        } else if (fiscalCodeOdd[i] == 'y') {
+            sumArr.push(24)
+        } else if (fiscalCodeOdd[i] == 'z') {
+            sumArr.push(23)
+        }
+        sumArr.push(100);
+    };
 
 console.log(sumArr);
-    const sum = sumArr.reduce((a, b) => a + b)
-        console.log(sum);
 
 }
 
+let luoghiNascita = [];
+const getPaeseJSON = async () => {
 
+    const response = await fetch('paese.json');
+    luoghiNascita = await response.json();
+
+    $.each(luoghiNascita, function (index, paese) { 
+        $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
+       $('#btn').on('click', function () {
+               if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
+                   let splitCodice = paese.codice.split('')
+                   for ( let i = 0; i < splitCodice.length; i++ ) {
+                       fiscalCode.push(splitCodice[i])
+                   }
+               } else {
+                   $('#birth-place').attr('placeholder', 'Insert valid birthplace');
+               }
+           });
+   });
+};
+
+getPaeseJSON()
+    .then(controlNumCode())
 
 $('#btn').on('click', function () {
     let lastNameInputVal = $('#last-name').val();
@@ -405,12 +314,8 @@ $('#btn').on('click', function () {
     lastNameCode(lastNameInputVal)
     firstNameCode(firstNameInputVal)
     birthDateCode()
-    controlNumCode(fiscalCode)
-
-    console.log(fiscalCode); 
-    console.log(fiscalCodeOdd);
-    console.log(fiscalCodeEven);
-
+    
+    console.log(fiscalCode);
 });
 
 /* getBirthplace()
