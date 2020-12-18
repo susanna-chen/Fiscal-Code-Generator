@@ -11,34 +11,38 @@
 
         <h2>Fiscal Code Generator</h2>
 
-       <form class="form">
-            
+       <form>
+            <label for="last-name">Last Name</label><br>
             <input type="text" name="last-name" id="last-name" autocomplete="off" required>
-            <label for="last-name" class="label-down">Last Name</label><br>
             
+            <label for="first-name">First Name</label><br>
             <input type="text" name="first-name" id="first-name" autocomplete="off" required>
-            <label for="first-name" class="label-down">First Name</label><br>
-
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br>
             
             <label for="birth-date">Date of Birth</label>
-            <input type="date" name="birth-date" id="birth-date"><br>
+            <input type="date" name="birth-date" id="birth-date" required><br>
             
             <label for="birth-place">Place Of Birth</label>
             <input list="luogo-nascita" id="birth-place" autocomplete="off" required>
             <datalist id="luogo-nascita">
                 
             </datalist>
-            
+            <div class="gender-container">
+                <div>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>   
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+                </div>
+               
+            </div>
             <div class="btn-container">
-                <button type="button" id="btn">Generate Code</button>
+                <button class="btn" id="btn">Generate Code</button>
             </div>  
             
-      </form>
-   </div>
+        </form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>

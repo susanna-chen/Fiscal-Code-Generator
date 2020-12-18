@@ -7,11 +7,11 @@ const lastNameCode = function (lastName) {
     let vowelArr = lastName.match(vowelRegex);
     let consonantArr = lastName.match(consonantRegex);
 
-    if (consonantArr == null && vowelArr.length > 1) {
-        fiscalCode.push(vowelArr[0], vowelArr[1], 'x');
+        if ( vowelArr == null || vowelArr.length < 2 && consonantArr == null) {
+        $('#last-name').attr('placeholder', 'Insert valid last name');
     }
-     else if (vowelArr == null) {
-        console.log('invalid name');
+     else if (consonantArr == null && vowelArr.length > 1) {
+        fiscalCode.push(vowelArr[0], vowelArr[1], 'x');
     }
      else if (consonantArr.length == 1 && vowelArr.length == 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], 'x');
@@ -32,8 +32,8 @@ const firstNameCode = function (firstName) {
     let vowelArr = firstName.match(vowelRegex);
     let consonantArr = firstName.match(consonantRegex);
 
-    if (consonantArr == null || vowelArr == null) {
-        console.log('invalid name');
+    if (vowelArr == null || vowelArr.length < 2 && consonantArr == null) {
+        $('#first-name').attr('placeholder', 'Insert valid first name');
     }
     else if (consonantArr == null && vowelArr.length > 1) {
         fiscalCode.push(vowelArr[0], vowelArr[1], 'x');
@@ -41,7 +41,7 @@ const firstNameCode = function (firstName) {
     else if (consonantArr.length == 1 && vowelArr.length == 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], 'x');
     }
-    else if (consonantArr.length == 1 && vowelArr.lengthlLength > 1) {
+    else if (consonantArr.length == 1 && vowelArr.length > 1) {
         fiscalCode.push(consonantArr[0], vowelArr[0], vowelArr[1]);
     }
     else if (consonantArr.length == 2 && vowelArr.length > 0) {
@@ -54,7 +54,7 @@ const firstNameCode = function (firstName) {
         fiscalCode.push(consonantArr[0], consonantArr[2], consonantArr[3]);
 
     }
-/*     console.log(fiscalCode); */
+
 }
 
 const birthDateCode = function () { 
@@ -135,152 +135,157 @@ const birthDateCode = function () {
     }
 }
 
-/* $.getJSON( "paese.json", function( data ) {
-    luoghiNascita = data;
-    $.each(luoghiNascita, function (index, paese) { 
-         $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
-        $('#btn').on('click', function () {
-                if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
-                    let splitCodice = paese.codice.split('')
-                    for ( let i = 0; i < splitCodice.length; i++ ) {
-                        fiscalCode.push(splitCodice[i])
-                    }
-                } else {
-                    $('#birth-place').attr('placeholder', 'Insert valid birthplace');
-                }
-            });
-    });
-}); */
+let evenVal = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    'a': 0,
+    'b': 1,
+    'c': 2,
+    'd': 3,
+    'e': 4,
+    'f': 5,
+    'g': 6,
+    'h': 7,
+    'i': 8,
+    'j': 9,
+    'k': 10,
+    'l': 11,
+    'm': 12,
+    'n': 13,
+    'o': 14,
+    'p': 15,
+    'q': 16,
+    'r': 17,
+    's': 18,
+    't': 19,
+    'u': 20,
+    'v': 21,
+    'w': 22,
+    'x': 23,
+    'y': 24,
+    'z': 25
+}
+
+const oddVal = {
+    '0': 1,
+    '1': 0,
+    '2': 5,
+    '3': 7,
+    '4': 9,
+    '5': 13,
+    '6': 15,
+    '7': 17,
+    '8': 19,
+    '9': 21,
+    'a': 1,
+    'b': 0,
+    'c': 5,
+    'd': 7,
+    'e': 9,
+    'f': 13,
+    'g': 15,
+    'h': 17,
+    'i': 19,
+    'j': 21,
+    'k': 2,
+    'l': 4,
+    'm': 18,
+    'n': 20,
+    'o': 11,
+    'p': 3,
+    'q': 6,
+    'r': 8,
+    's': 12,
+    't': 14,
+    'u': 16,
+    'v': 10,
+    'w': 22,
+    'x': 25,
+    'y': 24,
+    'z': 23       
+}
+
+const remainderVal = {
+    0: "a",
+    1: "b",
+    2: "c",
+    3: "d",
+    4: "e",
+    5: "f",
+    6: "g",
+    7: "h",
+    8: "i",
+    9: "j",
+    10:	"k",
+    11:	"l",
+    12:	"m",
+    13:	"n",
+    14:	"o",
+    15:	"p",
+    16:	"q",
+    17:	"r",
+    18:	"s",
+    19:	"t",
+    20:	"u",
+    21:	"v",
+    22:	"w",
+    23:	"x",
+    24:	"y",
+    25:	"z"	
+
+}
 
 let fiscalCodeOdd = [];
 let fiscalCodeEven = [];
 let sumArr = [];
 
-const controlNumCode = arr => {
 
-    for (let i = 0; i < fiscalCode.length; i++) {
+const controlNumCode = arr => {
+    for (let i = 0; i < arr.length; i++) {
         if (i % 2 === 0) {
-            fiscalCodeEven.push(fiscalCode[i])
+            fiscalCodeOdd.push(arr[i])
         } else {
-            fiscalCodeOdd.push(fiscalCode[i])
+            fiscalCodeEven.push(arr[i])
         }
     }
 
-    for (let i = 0; i < fiscalCodeEven.length; i++) { 
-        if (fiscalCodeEven[i] === 'a' || '0') {
-            sumArr.push(0)
-        } else if (fiscalCodeEven[i] == 'b' || '1') {
-            sumArr.push(1)
-        } else if (fiscalCodeEven[i] == 'c' || '2') {
-            sumArr.push(2)
-        } else if (fiscalCodeEven[i] == 'd' || '3') {
-            sumArr.push(3)
-        } else if (fiscalCodeEven[i] == 'e' || '4') {
-            sumArr.push(4)
-        } else if (fiscalCodeEven[i] == 'f' || '5') {
-            sumArr.push(5)
-        } else if (fiscalCodeEven[i] == 'g' || '6') {
-            sumArr.push(6)
-        } else if (fiscalCodeEven[i] == 'h' || '7') {
-            sumArr.push(7)
-        } else if (fiscalCodeEven[i] == 'i' || '8') {
-            sumArr.push(8)
-        } else if (fiscalCodeEven[i] == 'j' || '9') {
-            sumArr.push(9)
-        } else if (fiscalCodeEven[i] == 'k') {
-            sumArr.push(10)
-        } else if (fiscalCodeEven[i] == 'l') {
-            sumArr.push(11)
-        } else if (fiscalCodeEven[i] == 'm') {
-            sumArr.push(12)
-        } else if (fiscalCodeEven[i] == 'n') {
-            sumArr.push(13)
-        } else if (fiscalCodeEven[i] == 'o') {
-            sumArr.push(14)
-        } else if (fiscalCodeEven[i] == 'p') {
-            sumArr.push(15)
-        } else if (fiscalCodeEven[i] == 'q') {
-            sumArr.push(16)
-        } else if (fiscalCodeEven[i] == 'r') {
-            sumArr.push(17)
-        } else if (fiscalCodeEven[i] == 's') {
-            sumArr.push(18)
-        } else if (fiscalCodeEven[i] == 't') {
-            sumArr.push(19)
-        } else if (fiscalCodeEven[i] == 'u') {
-            sumArr.push(20)
-        } else if (fiscalCodeEven[i] == 'v') {
-            sumArr.push(21)
-        } else if (fiscalCodeEven[i] == 'w') {
-            sumArr.push(22)
-        } else if (fiscalCodeEven[i] == 'x') {
-            sumArr.push(23)
-        } else if (fiscalCodeEven[i] == 'y') {
-            sumArr.push(24)
-        } else if (fiscalCodeEven[i] == 'z') {
-            sumArr.push(25)
-        } 
-    };
-
-    for (let i = 0; i < fiscalCodeOdd.length; i++) { 
-        if (fiscalCodeOdd[i] === 'a' || '0') {
-            sumArr.push(1)
-        } else if (fiscalCodeOdd[i] == 'b' || '1') {
-            sumArr.push(0)
-        } else if (fiscalCodeOdd[i] == 'c' || '2') {
-            sumArr.push(5)
-        } else if (fiscalCodeOdd[i] == 'd' || '3') {
-            sumArr.push(7)
-        } else if (fiscalCodeOdd[i] == 'e' || '4') {
-            sumArr.push(9)
-        } else if (fiscalCodeOdd[i] == 'f' || '5') {
-            sumArr.push(13)
-        } else if (fiscalCodeOdd[i] == 'g' || '6') {
-            sumArr.push(15)
-        } else if (fiscalCodeOdd[i] == 'h' || '7') {
-            sumArr.push(17)
-        } else if (fiscalCodeOdd[i] == 'i' || '8') {
-            sumArr.push(19)
-        } else if (fiscalCodeOdd[i] == 'j' || '9') {
-            sumArr.push(21)
-        } else if (fiscalCodeOdd[i] == 'k') {
-            sumArr.push(2)
-        } else if (fiscalCodeOdd[i] == 'l') {
-            sumArr.push(4)
-        } else if (fiscalCodeOdd[i] == 'm') {
-            sumArr.push(18)
-        } else if (fiscalCodeOdd[i] == 'n') {
-            sumArr.push(20)
-        } else if (fiscalCodeOdd[i] == 'o') {
-            sumArr.push(11)
-        } else if (fiscalCodeOdd[i] == 'p') {
-            sumArr.push(3)
-        } else if (fiscalCodeOdd[i] == 'q') {
-            sumArr.push(6)
-        } else if (fiscalCodeOdd[i] == 'r') {
-            sumArr.push(8)
-        } else if (fiscalCodeOdd[i] == 's') {
-            sumArr.push(12)
-        } else if (fiscalCodeOdd[i] == 't') {
-            sumArr.push(14)
-        } else if (fiscalCodeOdd[i] == 'u') {
-            sumArr.push(16)
-        } else if (fiscalCodeOdd[i] == 'v') {
-            sumArr.push(10)
-        } else if (fiscalCodeOdd[i] == 'w') {
-            sumArr.push(22)
-        } else if (fiscalCodeOdd[i] == 'x') {
-            sumArr.push(25)
-        } else if (fiscalCodeOdd[i] == 'y') {
-            sumArr.push(24)
-        } else if (fiscalCodeOdd[i] == 'z') {
-            sumArr.push(23)
+    fiscalCodeOdd.forEach(element => {
+        if (element in oddVal) {
+            sumArr.push(oddVal[element])
         }
-        sumArr.push(100);
-    };
+    });
+    fiscalCodeEven.forEach(element => {
+        if (element in evenVal) {
+            sumArr.push(evenVal[element])
+        }
+    });
+    let sumRemainder = sumArr.reduce((a, b) => (a + b) % 26)
+    if (remainderVal.hasOwnProperty(sumRemainder)) {
+        fiscalCode.push(remainderVal[sumRemainder])
+    }
+    console.log(sumArr);
+    console.log(sumRemainder);
+};
 
-console.log(sumArr);
-
+function birthplaceCode() {
+    $.each(luoghiNascita, function (index, paese) {
+        if ($('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
+            let splitCodice = paese.codice.split('');
+            for (let i = 0; i < splitCodice.length; i++) {
+                fiscalCode.push(splitCodice[i].toLowerCase());
+            }
+        } else if ($('#birth-place').val() === "") {
+            $('#birth-place').attr('placeholder', 'Insert valid birthplace');
+        }
+    });
 }
 
 let luoghiNascita = [];
@@ -291,31 +296,39 @@ const getPaeseJSON = async () => {
 
     $.each(luoghiNascita, function (index, paese) { 
         $('#luogo-nascita').append(`<option value="${paese.denominazione}">${paese.codice}</option>`);
-       $('#btn').on('click', function () {
+       /* $('#btn').on('click', function () {
                if ( $('#birth-place').val().toUpperCase() === paese.denominazione.toUpperCase()) {
                    let splitCodice = paese.codice.split('')
                    for ( let i = 0; i < splitCodice.length; i++ ) {
-                       fiscalCode.push(splitCodice[i])
+                       fiscalCode.push(splitCodice[i].toLowerCase())
                    }
                } else {
                    $('#birth-place').attr('placeholder', 'Insert valid birthplace');
                }
            });
-   });
-};
+           controlNumCode(fiscalCode)
+   }); */
+});
 
+}
 getPaeseJSON()
-    .then(controlNumCode())
 
 $('#btn').on('click', function () {
-    let lastNameInputVal = $('#last-name').val();
-    let firstNameInputVal = $('#first-name').val();
+    let lastNameInputVal = $('#last-name').val().toLowerCase();
+    let firstNameInputVal = $('#first-name').val().toLowerCase();
     
     lastNameCode(lastNameInputVal)
     firstNameCode(firstNameInputVal)
     birthDateCode()
-    
-    console.log(fiscalCode);
+    birthplaceCode()
+    controlNumCode(fiscalCode)
+    $('.container').html(
+        `<div class="result">
+        <h2>Your Fiscal Code</h2>
+        <p>${fiscalCode.join("").toUpperCase()}</p>
+        <button onClick="window.location.reload();" class="btn">New Fiscal Code</button>
+        <div>`
+    );
 });
 
 /* getBirthplace()

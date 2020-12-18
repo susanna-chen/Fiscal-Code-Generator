@@ -60,18 +60,6 @@ input {
     filter: invert(1);
 }
 
-.label-down {
-    position: relative;
-    top: -40px;
-    z-index: 1;
-    pointer-events: none;
-    transition: 0.3s ease-out;
-}
-
-input:focus + .label-down,
-input:not(:focus):valid + .label-down {
-    top: -65px;
-}
 
 #last-name:focus,
 #first-name:focus,
@@ -84,16 +72,18 @@ input:not(:focus):valid + .label-down {
     text-align: center;
 }
 
-#male,
-#female {
-    margin-left: 2.8rem;
+.gender-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
 }
+
 
 .btn-container {
     text-align: center;
 }
 
-#btn {
+.btn {
     margin-top: 2.5rem;
     padding: 10px 20px;
     background: var(--detail);
@@ -101,9 +91,18 @@ input:not(:focus):valid + .label-down {
     border-radius: 5px;
     font-weight: bold;
     color: white;
+    transition: 0.2s ease-in-out;
+}
 
+.btn:hover {
+    background:  #b1891d;
+    border: 1px solid #b1891d;
 }
 
 input::placeholder {
     color: var(--detail);
+}
+
+.result {
+    text-align: center;
 }
